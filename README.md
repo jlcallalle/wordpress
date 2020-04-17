@@ -83,3 +83,57 @@ Dentro de la carpeta creamos:
 <?php get_header(); ?>
 <?php get_footer(); ?>
 ```
+
+## Creacion de Título y assets mediante functions.php
+
+En functions.php, agregamos funciones: 
+- init_template, ejecuta cuando carga página
+- assets, cargar componentes de terceros
+
+```php
+<?php 
+function init_template(){
+    add_theme_support( 'title-tag');
+}
+
+function assets(){
+    wp_register_style('bootstrap','https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', '', '4.4.1','all');
+    wp_register_style('montserrat', 'https://fonts.googleapis.com/css?family=Montserrat&display=swap','','1.0', 'all');
+    wp_enqueue_style('estilos', get_stylesheet_uri(), array('bootstrap','montserrat'),'1.0', 'all');
+    wp_register_script('popper','https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js','','1.16.0', true);
+    wp_enqueue_script('boostraps', 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', array('jquery','popper'),'4.4.1', true);
+    wp_enqueue_script('custom', get_template_directory_uri().'/assets/js/custom.js', '', '1.0', true);
+}
+
+add_action('after_setup_theme','init_template');
+add_action('wp_enqueue_scripts','assets');
+```
+
+## Creacion de Menús
+En functions.php, agregamos funciones: 
+
+```php
+function init_template(){
+    register_nav_menus(
+        array(
+            'top_menu' => 'Menú Principal'
+        )
+    );
+}
+```
+En header.php
+```php
+ <nav>
+  <?php wp_nav_menu(
+      array(
+          'theme_location' => 'top_menu',
+          'menu_class'    => 'menu-principal',
+          'container_class' => 'container-menu',
+      )
+  ); 
+  ?>
+ </nav>
+```
+
+## Widgets
+Muestra contenido mediante sidebars.
