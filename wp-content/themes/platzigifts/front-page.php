@@ -19,8 +19,8 @@
         $args = array(
             'post_type' => 'producto',
             'post_per_page' => -1, 
-            'order'         => 'ASC',
-            'orderby'       => 'title'
+            'order'         => 'ASC', //DESC
+            'orderby'       => 'title' //date
         );
 
         $productos = new WP_Query($args);
@@ -51,3 +51,6 @@
 </main>
 
 <?php get_footer(); ?>
+
+## Personalizar el Loop en la página principal
+En admin, creamos más productos
