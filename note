@@ -46,3 +46,19 @@ define('LOGGED_IN_SALT',   'c!!Rn(.N>xW]:|tZxBAsv{+I+ym1(AW%]%{kOeX +FLl8#wemM-=
 define('NONCE_SALT',       'w7=xW`2vV|x]?*K[U*g6k.?8jG-R:>y{qo#O3%n4`xviCkv_UYQ4Y*+GVm>RB#.;');
 
 Dashboard
+
+Crear Theme
+En wp-content/theme, creamos carpeta platzigifts del thema
+agregamos
+ - index.php
+ - style.css, donde agregamos estos datos
+  /*
+Theme name: PlatziGifts
+Version: 1.0
+Description: sitio para catálogo de platzi
+Author: Jorge Callalle
+Authon URI: http://github.com/jlcallalle
+License: GNU General Public Licence v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+*/

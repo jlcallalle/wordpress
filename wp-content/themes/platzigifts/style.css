@@ -1,0 +1,15 @@
+/*
+Theme name: PlatziGifts
+Version: 1.0
+Description: sitio para catálogo de platzi
+Author: Jorge Callalle
+Authon URI: http://github.com/jlcallalle
+License: GNU General Public Licence v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+*/
+
+html, body {
+	color: gray;
+	background-color:coral;
+}
