@@ -136,4 +136,35 @@ En header.php
 ```
 
 ## Widgets
-Muestra contenido mediante sidebars.
+Muestra contenido mediante sidebars. Se agregará widgets en footer:
+
+En functions.php, agregamos funciones: 
+
+```php
+function sidebar(){
+    register_sidebar(
+        array(
+            'name' => 'Pie de página',
+            'id'   => 'footer',
+            'description' => 'Zona de Widgets para pie de página',
+            'before_title' => '<p>',
+            'after_title'  => '</p>',
+            'before_widget' => '<div id="%1$s" class="%2$s">',
+            'after_widget'  => '</div>',
+        )
+        );
+}
+
+add_action('widgets_init', 'sidebar');
+```
+
+En Apariencia mostrará area de Widgets, Agregamos texto en Widget
+
+En Footer.php, agregamos referenciado en el Id => footer
+```php
+<footer>
+    <div class="container">
+        <?php dynamic_sidebar('footer'); ?>
+    </div>
+</footer>
+```
