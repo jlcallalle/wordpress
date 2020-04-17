@@ -1,0 +1,49 @@
+Wordpress
+------------
+Curso Wordpress
+El proceso de render, primero lee la db, template y plugins
+Caraccteristica
+- Autoaministrable
+- Gestion de Usuario
+- Api REST (Gapzi, react)
+- Flexible
+- Actualizaciones
+- Comunidad
+
+Theme
+index.php : Archivo principla del theme y página de inicio
+style.css: Archivo principal de estilos y parametros
+font-page.php: carga: Es la vista por defecto de la pagina de inicio
+footer.php: carga footer
+function.php, permite generar propio codigo para amplicar funcionalidad
+header.php: header
+404.php: 
+page:php, pertenece a las paginas
+schrenshop.php: imagen de referencia
+simgle.phph: Corresponde a los post, entradas o a los posttype personalizados si no le especificamos una ruta.
+
+Hooks: funciones de wordpress,, que permite agregar codigo propio al codigo fuente de wp.
+tipos:
+  - Actions: permite agregar codigo, alguna funcionalidad: usa add_action
+  - Filter, lo mismo que actions, pero se agrega un argumento agregado: usa add_filter
+
+Manejo de liberrias en wp
+funciones
+wp_register_style(): no ejecuta en html, recibe 5 argumentos
+wp_enquevue_style(): si incrusta en html
+
+Salqui: son metodos de seguridad que tiene wp, al tener usuarios logeados
+si tenemos varios,se van a deslogear todos.
+
+wp-config.php
+http://api.wordpress.org/secret-key/1.1/salt
+Cambiar
+
+define('AUTH_KEY',         '|J N|##9<m9lwWk&+HF_n/0u,zs-+T3n,y_G59frrgVq}:S1yd{;;F]2GDi/}-nY');
+define('SECURE_AUTH_KEY',  'cJ$ }4468ZuX3|Z$[&}l7GY:=]j#vJDkX<S7q(UI KShTYCxz6J@/?^qxi;,k0}W');
+define('LOGGED_IN_KEY',    '`koZKHKC6MZ{*ZJ0c*9nPJ$Q;.Y/G>%qdck~hKbd 3)<l+!IPr;rTK0++Z21Ncrj');
+define('NONCE_KEY',        '`-?x9%={Gi}h.]pS!.ILjRg^FJ&r!V?OC$KibBP|-g$^?+HO6a2-;h}H3liiN6Ze');
+define('AUTH_SALT',        '0@7lgTvkRMys*G`a>>Z5<)gD1wl.vt,(T>W&D}tY +fMm+-N)$!?sLRJH-]QdsXj');
+define('SECURE_AUTH_SALT', '1p;?k(~o,T:I4pm0Y@#B^V^9-Wr|`>+[c;&-%`U&FL(N#E3 4H;PY@NW!.`LOW]?');
+define('LOGGED_IN_SALT',   'c!!Rn(.N>xW]:|tZxBAsv{+I+ym1(AW%]%{kOeX +FLl8#wemM-=w-TdV}5k.R1<');
+define('NONCE_SALT',       'w7=xW`2vV|x]?*K[U*g6k.?8jG-R:>y{qo#O3%n4`xviCkv_UYQ4Y*+GVm>RB#.;');
