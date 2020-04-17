@@ -180,7 +180,7 @@ Loops: muestra contenido que tenemos guardado en el administrador.
  - Basico: ejecuta en los archivos designados a sus respectivos post type, por ejm: page.php
  - Personalizado: Utiliza el Objeto WP_Query de Wordpress para personalizar consulta.
 
- ## Page 
+ ## Page.php
  En panel wordpress creamos una página, para que se muestre creamos: 
 
  page.php, 
@@ -189,10 +189,43 @@ Loops: muestra contenido que tenemos guardado en el administrador.
 <main class='container'>
     <?php if(have_posts()){ 
             while(have_posts()){ // funcion have_post: si hay contenido, devuelva true
-                the_post(); ?>
+                the_post(); ?> 
             <h1 class='my-3'><?php the_title(); ?></h1>
             <?php the_content(); ?>
          <?php }
     }?>
 </main>
 ```
+Procesos Wordpress
+https://developer.wordpress.org/files/2014/10/Screenshot-2019-01-23-00.20.04.png
+
+ ## Single.php 
+Hace referencia a las entradas del blog, y tambien cuando trabajamos con custom post type.
+ 
+En dashboard, agregamos una imagen al post port defecto:
+http://localhost/platzigifts/wp-content/uploads/2020/04/default.png
+
+single.php
+
+ ```html
+<main class='container my-3'>
+    <?php if(have_posts()){
+            while(have_posts()){
+                the_post();
+            ?>
+                <h1 class='my-5'><?php the_title() ?></h1>
+                <div class="row">
+                    <div class="col-6">
+                        <?php the_post_thumbnail('large'); ?>
+                    </div>
+                    <div class="col-6">
+                        <?php the_content(); ?>
+                    </div> 
+                </div>
+            <?php
+            }
+    } ?>
+</main>
+```
+
+the_post_thumbnail: permite cargar la imagen subida
