@@ -259,3 +259,74 @@ Donde se mostrará contenido del home principal
 
 <?php get_footer(); ?>
 ```
+
+## Custom Post Type
+
+En function.php
+
+ ```php
+function productos_type(){
+    $labels = array(
+        'name' => 'Productos',
+        'singular_name' => 'Producto',
+        'manu_name' => 'Productos',
+    );
+
+    $args = array(
+        'label'  => 'Productos', 
+        'description' => 'Productos de Platzi',
+        'labels'       => $labels,
+        'supports'   => array('title','editor','thumbnail', 'revisions'),
+        'public'    => true,
+        'show_in_menu' => true,
+        'menu_position' => 5,
+        'menu_icon'     => 'dashicons-cart',
+        'can_export' => true,
+        'publicly_queryable' => true,
+        'rewrite'       => true,
+        'show_in_rest' => true
+
+    );    
+    register_post_type('producto', $args);
+}
+
+add_action('init', 'productos_type');
+ ```
+
+ En front-page.php
+
+ ```html
+     <div class="lista-productos my-5">
+        <h2 class='text-center'>PRODUCTOS</h2>
+        <div class="row">
+        <?php
+        $args = array(
+            'post_type' => 'producto',
+            'post_per_page' => -1, 
+            'order'         => 'ASC',
+            'orderby'       => 'title'
+        );
+
+        $productos = new WP_Query($args);
+
+        if($productos->have_posts()){
+            while($productos->have_posts()){
+                $productos->the_post();
+                ?>
+
+                <div class="col-4">
+                    <figure>
+                        <?php the_post_thumbnail('large'); ?>
+                    </figure>
+                    <h4 class='my-3 text-center'>
+                        <a href="<?php the_permalink(); ?>">
+                            <?php the_title();?>
+                        </a>
+                    </h4>
+                </div>
+           <?php }
+        }
+        ?>
+      </div>
+    </div>
+```
