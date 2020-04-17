@@ -229,3 +229,33 @@ single.php
 ```
 
 the_post_thumbnail: permite cargar la imagen subida
+
+## Armando la página principal
+En dashboard
+Ajuster / Lectura, elegir página para que muestre en el home
+
+Por defautl, se mostrara contenido de la página escogida.
+
+Si deseamos tener algo más personalziado usaremos:
+
+front-page.php
+Donde se mostrará contenido del home principal
+
+<?php get_header(); ?>
+
+ ```html
+<main class='container hola'>
+    <?php if(have_posts()){
+            while(have_posts()){
+                the_post(); ?>
+            <h1 class='my-3'><?php the_title(); ?>!!</h1>
+            <?php the_content(); ?>
+
+        <?php    }
+    }?>
+
+    <p>Front Page</p>
+</main>
+
+<?php get_footer(); ?>
+```
