@@ -168,3 +168,31 @@ En Footer.php, agregamos referenciado en el Id => footer
     </div>
 </footer>
 ```
+
+## Post Type
+
+Post type por defecto
+ - Archivos Multimedia
+ - Menú
+Custom Post Type: personalizados.
+
+Loops: muestra contenido que tenemos guardado en el administrador.
+ - Basico: ejecuta en los archivos designados a sus respectivos post type, por ejm: page.php
+ - Personalizado: Utiliza el Objeto WP_Query de Wordpress para personalizar consulta.
+
+ ## Page 
+ En panel wordpress creamos una página, para que se muestre creamos: 
+
+ page.php, 
+
+ ```html
+<main class='container'>
+    <?php if(have_posts()){ 
+            while(have_posts()){ // funcion have_post: si hay contenido, devuelva true
+                the_post(); ?>
+            <h1 class='my-3'><?php the_title(); ?></h1>
+            <?php the_content(); ?>
+         <?php }
+    }?>
+</main>
+```
